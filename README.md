@@ -21,15 +21,15 @@
 
 
 ## 初次试错：
-使用红楼梦的txt文件作为训练集，效果并不理想。
-（文件夹中的sidamingzhu均为与之相关的文件）
-问题：过拟合明显
+使用红楼梦的txt文件作为训练集，效果并不理想。（文件夹中的sidamingzhu均为与之相关的文件）
+问题：过拟合明显。
 step 2000: train loss 1.1798, val loss 5.1980
 step 3000: train loss 0.2954, val loss 6.4054
 step 4000: train loss 0.1332, val loss 7.1862
-使用的训练参数如下：
---device=cuda --compile=False --eval_iters=200 --log_interval=10 --block_size=256 --batch_size=32 --n_layer=24 --n_head=8 --n_embd=512 --max_iters=5000 --lr_decay_iters=5000 --dropout=0.2时
-原因分析：（1）数据集过小，（2）dropout过小，（3），学习率过大
+- 使用的训练参数如下：
+```python
+--device=cuda --compile=False --eval_iters=200 --log_interval=10 --block_size=256 --batch_size=32 --n_layer=24 --n_head=8 --n_embd=512 --max_iters=5000 --lr_decay_iters=5000 --dropout=0.2
+原因分析：（1）数据集过小，（2）dropout过小，（3）学习率过大。
 于是换清华大学新闻数据集，将dropout改为0.4，并将学习率设置为2e-5。
 
 ## 数据集处理：
