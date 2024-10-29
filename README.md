@@ -23,22 +23,23 @@
 ## 初次试错：
 使用红楼梦的txt文件作为训练集，效果并不理想。（文件夹中的sidamingzhu均为与之相关的文件）
 问题：过拟合明显。
-step 2000: train loss 1.1798, val loss 5.1980
-step 3000: train loss 0.2954, val loss 6.4054
-step 4000: train loss 0.1332, val loss 7.1862
+**step 2000: train loss 1.1798, val loss 5.1980  
+step 3000: train loss 0.2954, val loss 6.4054  
+step 4000: train loss 0.1332, val loss 7.1862**
 - 使用的训练参数如下：
-```python
+```
 --device=cuda --compile=False --eval_iters=200 --log_interval=10 --block_size=256 --batch_size=32 --n_layer=24 --n_head=8 --n_embd=512 --max_iters=5000 --lr_decay_iters=5000 --dropout=0.2
+```
 原因分析：（1）数据集过小，（2）dropout过小，（3）学习率过大。
 于是换清华大学新闻数据集，将dropout改为0.4，并将学习率设置为2e-5。
 
 ## 数据集处理：
-数据集路径：.\nanoGPT\data\TH\input.txt
+数据集路径：**.\nanoGPT\data\TH\input.txt**
 （数据集使用UTF-8编码方式，而开源代码中在windows下自动选择gbk解码方式所以修改了prepare.py文件）
 命令行：（用于生成train.bin和val.bin文件）
 python data/TH/prepare.py
-数据集大小：length of dataset in characters: 171,967,843
-不同的字符数：vocab size: 5,791
+数据集大小：**length of dataset in characters: 171,967,843**
+不同的字符数：**vocab size: 5,791**
 将10%作为测试集，90%作为训练集。
 
 ## 模型训练:
@@ -47,8 +48,9 @@ python data/TH/prepare.py
 图1，训练参数情况。
 
 命令行：
+```
 python train.py config/train_TH.py --device=cuda --compile=False --eval_iters=200 --log_interval=10 --block_size=256 --batch_size=32 --n_layer=40 --n_head=8 --n_embd=512 --max_iters=30000 --lr_decay_iters=30000 --dropout=0.4
-
+```
 
 模型参数大小为128MB左右。（4080显卡训练大约需要3小时）
 
