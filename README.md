@@ -21,10 +21,12 @@
 
 ## 初次试错：
 使用红楼梦的txt文件作为训练集，效果并不理想。（文件夹中的sidamingzhu均为与之相关的文件）  
-问题：过拟合明显。  
-**step 2000: train loss 1.1798, val loss 5.1980  
+**问题：过拟合明显。**  
+```
+step 2000: train loss 1.1798, val loss 5.1980  
 step 3000: train loss 0.2954, val loss 6.4054  
-step 4000: train loss 0.1332, val loss 7.1862**
+step 4000: train loss 0.1332, val loss 7.1862
+```
 
 - 使用的训练参数如下：
 ```
