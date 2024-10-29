@@ -9,14 +9,14 @@
 - GPU: 4080 显卡
 
 #### Anaconda 环境配置
-- Python: 3.10.15
-- numpy: 2.1.2
-- datasets: 2.21.0
-- torch: 2.5.0+cu124
-- tiktoken: 0.8.0
-- tqdm: 3.8.0
-- transformers: 4.46.0
-- wandb: 0.18.5
+> - Python: 3.10.15
+> - numpy: 2.1.2
+> - datasets: 2.21.0
+> - torch: 2.5.0+cu124
+> - tiktoken: 0.8.0
+> - tqdm: 3.8.0
+> - transformers: 4.46.0
+> - wandb: 0.18.5
 
 
 ## 初次试错：
