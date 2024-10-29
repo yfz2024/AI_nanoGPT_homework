@@ -48,7 +48,7 @@ python data/TH/prepare.py
 
 ## 模型训练:
 使用40层，8个多头注意力机制的头，进行30000轮训练，学习率为2e-5。详细参数如下：
-![image](https://github.com/user-attachments/assets/59d66458-ec2a-4d84-be36-b20e5c7bf9f6)
+![image](https://github.com/user-attachments/assets/59d66458-ec2a-4d84-be36-b20e5c7bf9f6)  
 图1，训练参数情况。
 
 命令行：
@@ -58,7 +58,7 @@ python train.py config/train_TH.py --device=cuda --compile=False --eval_iters=20
 
 模型参数大小为128MB左右。（4080显卡训练大约需要3小时）
 
-![image](https://github.com/user-attachments/assets/3fcb9663-a80a-42d3-892e-420f6d896bd7)
+![image](https://github.com/user-attachments/assets/3fcb9663-a80a-42d3-892e-420f6d896bd7)  
 图2，部分训练情况。
 
 最终训练30000轮时：**train loss 和 val loss 都在2.5左右。**  
